@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Playfair Cryptanalysis </title>
+        <style>
+            header {
+                background-color: rgb(74, 79, 76);
+                width: 100%;
+                height: 3em;
+                text-align: center;
+                color: whitesmoke;
+                font-size: 1.5em:
+            }
+            body {
+                font-family: sans-serif;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 10px;
+            }
+            textarea {
+                resize: none;
+                font-size: 12px:
+            }
+            #p1 {
+                text-align: center;
+            }
+            .result {
+                font-family: monospace;
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+           <br>Playfair Cryptanalysis
+        </header>
+        <hr>
+        <p id="p1">
+            This web app formats and compares cipher text and plain text <br> in reference to playfair ciphers. By inputing the required information, <br> the app can format the text making it much more readable and easier for the user to interpret.<br> There is also a table that the user can use to help visualize the process. 
+        </p>
+        <div>
+            <form id="keyTable">
+                <label>Plain Text</label><br>
+                <input type = "text" id = "plainText"> <br><br>
+                <label>Cipher Text</label><br>
+                <input type = "text" id = "cipherText"> <br><br>
+                <input type="button" id="runButton" value="Run">
+            </form>
+            
+            <br><br>
+            <p class = "result" id = "plainResult"></p>
+            <p class = "result" id = "cipherResult"></p>
+            <table>
+                <tr name ="row">
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    
+                </tr>
+                <tr name ="row">
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                </tr>
+                <tr name ="row">
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                </tr>
+                <tr name ="row">
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                </tr>
+                <tr name ="row">
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                    <th><textarea rows = "1" cols = "1" maxlength="1"></textarea></th>
+                </tr>
+            </table> <br>
+        </div>
+        <hr>
+        <footer font="small">
+            Mikaela Perez and Dylan Damico Spring 2021 CSC 483 Project
+        </footer>
+        <script>
+            function click() {
+                var plaintext = document.getElementById("plainText").value.toLowerCase().replace(/\s+/g, '');
+                var ciphertext = document.getElementById("cipherText").value.toLowerCase().replace(/\s+/g, '');
+                var sPlain = " ";
+                var sCipher = " ";
+                var i;
+                for (i = 0; i < plaintext.length; i += 2) {
+                    sPlain += plaintext.slice(i, i + 2) + ' ';
+                    sCipher += ciphertext.slice(i, i + 2) + ' ';
+                };
+                document.getElementById("plainResult").innerHTML = sPlain;
+                document.getElementById("cipherResult").innerHTML = sCipher;
+            }
+            document.getElementById("runButton").onclick = click;
+        </script>
+    </body>
+</html>
